@@ -53,8 +53,8 @@ header::before {
     right: 0;
     bottom: 0;
     background: linear-gradient(to bottom, 
-        rgba(0, 0, 0, 0.1), 
-        rgba(0, 0, 0, 0.2)
+        rgba(0, 0, 0, 0.4), 
+        rgba(0, 0, 0, 0.6)
     );
     z-index: 1;
 }
@@ -65,10 +65,11 @@ header::before {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px 30px;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.2);
     border-radius: 15px;
-    backdrop-filter: blur(3px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 header h1 {
@@ -87,61 +88,6 @@ header p {
     color: #ffffff;
     font-weight: 500;
     opacity: 0.95;
-}
-
-/* Introduction */
-.introduction {
-    max-width: 900px;
-    margin: 0 auto 30px;
-    padding: 20px;
-    background: rgba(32, 35, 42, 0.5);
-    border-radius: var(--border-radius);
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    color: var(--text-color);
-    line-height: 1.7;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.introduction p {
-    margin-bottom: 15px;
-}
-
-.introduction p:last-child {
-    margin-bottom: 0;
-}
-
-/* Category Navigation */
-.category-nav {
-    background: rgba(2, 136, 209, 0.1);
-    padding: 15px 0;
-    margin-bottom: 30px;
-    border-radius: var(--border-radius);
-    border: 1px solid rgba(3, 169, 244, 0.2);
-}
-
-.category-nav ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    flex-wrap: wrap;
-    gap: 10px;
-    padding: 0 15px;
-}
-
-.category-nav a {
-    color: var(--text-color);
-    text-decoration: none;
-    padding: 8px 15px;
-    border-radius: 20px;
-    background: rgba(0, 188, 212, 0.1);
-    transition: var(--transition);
-    display: block;
-    border: 1px solid rgba(0, 188, 212, 0.2);
-}
-
-.category-nav a:hover {
-    background: rgba(0, 188, 212, 0.2);
-    transform: translateY(-2px);
 }
 
 /* Section Styles */
@@ -299,11 +245,11 @@ header p {
 
 /* Footer */
 footer {
-    background: linear-gradient(135deg, #0288d1, #03a9f4);
+    background: #000000;
     color: white;
     padding: 40px 0 20px;
     margin-top: 60px;
-    box-shadow: 0 -4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 -4px 15px rgba(0,0,0,0.2);
 }
 
 .footer-content {
@@ -381,7 +327,23 @@ footer {
     opacity: 0.8;
 }
 
-/* Responsive Design */
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card, .additional-info {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* 更新响应式设计，移除不需要的部分 */
 @media (max-width: 768px) {
     header {
         padding: 40px 0;
@@ -389,16 +351,6 @@ footer {
 
     header h1 {
         font-size: 2.2em;
-    }
-
-    .category-nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .category-nav a {
-        width: 100%;
-        text-align: center;
     }
 
     .grid-container {
@@ -418,20 +370,4 @@ footer {
     .social-links {
         justify-content: center;
     }
-}
-
-/* Animations */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.card, .introduction, .category-nav, .additional-info {
-    animation: fadeIn 0.5s ease-out forwards;
 } 
